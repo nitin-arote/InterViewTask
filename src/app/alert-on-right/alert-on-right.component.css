@@ -1,0 +1,14 @@
+.alert_message {
+    position: fixed !important;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    right: 10px
+}
+.alert-danger{
+    background-color: red;
+}
+.alert-success{
+    background-color: green;
+}

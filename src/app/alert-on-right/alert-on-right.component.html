@@ -1,0 +1,1 @@
+<div *ngIf="message" id="parent-alert" class="mt-2 text-center alert_message" [ngClass]="{ 'alert': message, 'bg-success': message.type === 'success', 'bg-danger': message.type === 'error' }">{{message.text}}</div>

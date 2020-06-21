@@ -1,0 +1,143 @@
+<div class="container-fluid"  *ngIf="studentFlag == false">
+    <div class="fit">
+      <div class="main-div border rounded customize-border-blue align-self-center">
+        <div class="text-center"></div>
+        <div class="text-center logo-beneath">
+         Create Student
+        </div>
+        <form [formGroup]="studentForm">
+          <div class="form-group p-2">
+            <label for="division">Enter Division</label>
+            <input type="text" formControlName="division" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="dob">Enter dob</label>
+            <input type="text" formControlName="dob" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="email">Enter email</label>
+            <input type="text" formControlName="email" class="form-control"/>
+          </div>
+          <!-- <div class="form-group p-2">
+            <label for="id">Enter ID</label>
+            <input type="text" formControlName="id" class="form-control"/>
+          </div> -->
+          <div class="form-group p-2">
+            <label for="mobile">Enter mobile</label>
+            <input type="text" formControlName="mobile" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="name">Enter name</label>
+            <input type="text" formControlName="name" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="schoolName">Enter schoolName</label>
+            <input type="text" formControlName="schoolName" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="std">Enter std</label>
+            <input type="text" formControlName="std" class="form-control"/>
+              <!-- [ngClass]="{ 'is-invalid': submitted && f.password.errors }" 
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+            </div> -->
+          </div>
+          <div class="form-group text-right px-2 pt-3 mb-3">
+            <!-- <button type="submit"
+              [disabled]="loading && loginForm.controls.username.value!= '' && loginForm.controls.username.value!= 'admin' && loginForm.controls.password.value!= '' && loginForm.controls.password.value!= 'admin'"
+              class="btn submit-button btn-lg full-width" (click)="onSubmit()">Login</button> -->
+              <button type="submit"  (click)="createStudent()">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid"  *ngIf="studentFlag == true">
+    <div class="fit">
+      <div class="main-div border rounded customize-border-blue align-self-center">
+        <div class="text-center"></div>
+        <div class="text-center logo-beneath">
+         Update Student
+        </div>
+        <form [formGroup]="updateStudentForm">
+          <div class="form-group p-2">
+            <label for="division">Enter Division</label>
+            <input type="text" formControlName="division" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="dob">Enter dob</label>
+            <input type="text" formControlName="dob" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="email">Enter email</label>
+            <input type="text" formControlName="email" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="id">Enter ID</label>
+            <input type="text" formControlName="id" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="mobile">Enter mobile</label>
+            <input type="text" formControlName="mobile" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="name">Enter name</label>
+            <input type="text" formControlName="name" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="schoolName">Enter schoolName</label>
+            <input type="text" formControlName="schoolName" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="std">Enter std</label>
+            <input type="text" formControlName="std" class="form-control"/>
+              <!-- [ngClass]="{ 'is-invalid': submitted && f.password.errors }" 
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+            </div> -->
+          </div>
+          <div class="form-group text-right px-2 pt-3 mb-3">
+            <!-- <button type="submit"
+              [disabled]="loading && loginForm.controls.username.value!= '' && loginForm.controls.username.value!= 'admin' && loginForm.controls.password.value!= '' && loginForm.controls.password.value!= 'admin'"
+              class="btn submit-button btn-lg full-width" (click)="onSubmit()">Login</button> -->
+              <button type="submit"  (click)="UpdateStudentInfo()">Update Student</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-ms-12">
+    <table class="table table-bordered">
+        <thead>
+          <tr >
+            <th>Index</th>
+            <th>Division</th>
+            <th>Date of Birth</th>
+            <th>Email</th>
+            <th>student ID</th>
+            <th>Mobile</th>
+            <th>Name</th>
+            <th>Schoole Name</th>
+            <th>Enter STD</th>
+            <th>Update</th>
+            <th>Delete</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of studentData;let i = index">
+            <td>{{i+1}}</td>
+            <td>{{data['division']}}</td>
+            <td>{{data['dob']}}</td>
+            <td>{{data['email']}}</td>
+            <td>{{data['id']}}</td>
+            <td>{{data['mobile']}}</td>
+            <td>{{data['name']}}</td>
+            <td>{{data['schoolName']}}</td>
+            <td>{{data['std']}}</td>
+            <td><button (click)="updateStudent(i,data)">Update</button></td>
+            <td><button (click)="deleteStudent(i,data)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>

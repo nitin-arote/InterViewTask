@@ -1,0 +1,130 @@
+<div class="container-fluid" *ngIf="schoolFlag == false">
+    <div class="fit">
+      <div class="main-div border rounded customize-border-blue align-self-center">
+        <div class="text-center"></div>
+        <div class="text-center logo-beneath">
+         Create School
+        </div>
+        <form [formGroup]="schoolForm">
+          <div class="form-group p-2">
+            <label for="addressLine1">Enter addressLine1</label>
+            <input type="text" formControlName="addressLine1" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="addressLine2">Enter addressLine2</label>
+            <input type="text" formControlName="addressLine2" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="city">Enter city</label>
+            <input type="text" formControlName="city" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="district">Enter district</label>
+            <input type="text" formControlName="district" class="form-control"/>
+          </div>
+          <!-- <div class="form-group p-2">
+            <label for="id">Enter id</label>
+            <input type="text" formControlName="id" class="form-control"/>
+          </div> -->
+          <div class="form-group p-2">
+            <label for="locality">Enter locality</label>
+            <input type="text" formControlName="locality" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="schoolName">Enter schoolName</label>
+            <input type="text" formControlName="schoolName" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="state">Enter state</label>
+            <input type="text" formControlName="state" class="form-control"/>
+            
+          </div>
+          <div class="form-group text-right px-2 pt-3 mb-3">
+           <button type="submit"  (click)="createStudent()">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid" *ngIf="schoolFlag == true">
+    <div class="fit">
+      <div class="main-div border rounded customize-border-blue align-self-center">
+        <div class="text-center"></div>
+        <div class="text-center logo-beneath">
+         Update Schoole
+        </div>
+        <form [formGroup]="UpdateschoolForm">
+          <div class="form-group p-2">
+            <label for="addressLine1">Enter addressLine1</label>
+            <input type="text" formControlName="addressLine1" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="addressLine2">Enter addressLine2</label>
+            <input type="text" formControlName="addressLine2" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="city">Enter city</label>
+            <input type="text" formControlName="city" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="district">Enter district</label>
+            <input type="text" formControlName="district" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="id">Enter id</label>
+            <input type="text" formControlName="id" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="locality">Enter locality</label>
+            <input type="text" formControlName="locality" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="schoolName">Enter schoolName</label>
+            <input type="text" formControlName="schoolName" class="form-control"/>
+          </div>
+          <div class="form-group p-2">
+            <label for="state">Enter state</label>
+            <input type="text" formControlName="state" class="form-control"/>
+             
+          </div>
+          <div class="form-group text-right px-2 pt-3 mb-3">
+            <button type="submit"  (click)="UpdateSchoolInfo()">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-ms-12">
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Index</th>
+            <th>addressLine1</th>
+            <th>addressLine2</th>
+            <th>city</th>
+            <th>district</th>
+            <th>id</th>
+            <th>locality</th>
+            <th>Schoole Name</th>
+            <th>state</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of schoolData;let i = index">
+            <td>{{i+1}}</td>
+            <td>{{data['addressLine1']}}</td>
+            <td>{{data['addressLine2']}}</td>
+            <td>{{data['city']}}</td>
+            <td>{{data['district']}}</td>
+            <td>{{data['id']}}</td>
+            <td>{{data['locality']}}</td>
+            <td>{{data['schoolName']}}</td>
+            <td>{{data['state']}}</td>
+            <td><button (click)="UpdateSchool(i,data)">Update</button></td>
+            <td><button (click)="deleteSchool(i,data)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
